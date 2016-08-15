@@ -6,7 +6,7 @@ ENV TERM xterm-256color
 RUN apt-get update && apt-get install -y \
     netselect-apt
 
-RUN netselect-apt -n jessie && \
+RUN netselect-apt -n -s jessie && \
     mv ./sources.list /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y \
@@ -18,6 +18,9 @@ RUN netselect-apt -n jessie && \
 	silversearcher-ag \
 	colordiff \
 	ncdu \
+	vim \
+	python \
+	ranger \
 	&& apt-get clean
 
 # container user
@@ -39,6 +42,8 @@ RUN mkdir /home/me/src/ && \
     git clone https://github.com/clvv/fasd /home/me/src/fasd && \
     cd /home/me/src/fasd && \
     PREFIX=$HOME make install
+
+RUN git clone https://github.com/0x7cc/.vim /home/me/.vim
 
 
 RUN git clone https://github.com/0x7cc/.nixsh /home/me/.nixsh && \
