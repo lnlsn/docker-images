@@ -1,5 +1,5 @@
-FROM 0x7cc/deb-coleslaw
-MAINTAINER Lenilson Jose Dias <to@ha-ha.dev>
+FROM lnlsn/deb-coleslaw
+MAINTAINER Lenilson Jose Dias <to@lnlsn.dev>
 
 ENV TERM xterm-256color
 
@@ -33,7 +33,7 @@ USER me
 
 ADD quit.el /tmp
 
-RUN git clone https://gitlab.com/ha-ha/.emacs.d /home/me/.emacs.d && \
+RUN git clone https://gitlab.com/lnlsn/.emacs.d /home/me/.emacs.d && \
     cd /home/me/.emacs.d && \
     emacs --script /home/me/.emacs.d/setup-use-package.el && \
     emacs --script /tmp/quit.el
@@ -43,9 +43,9 @@ RUN mkdir /home/me/src/ && \
     cd /home/me/src/fasd && \
     PREFIX=$HOME make install
 
-RUN git clone https://gitlab.com/ha-ha/.vim /home/me/.vim
+RUN git clone https://gitlab.com/lnlsn/.vim /home/me/.vim
 
 
-RUN git clone https://gitlab.com/ha-ha/.nixsh /home/me/.nixsh && \
+RUN git clone https://gitlab.com/lnlsn/.nixsh /home/me/.nixsh && \
     echo '. /usr/lib/git-core/git-sh-prompt' >> /home/me/.bashrc && \
     echo '. ~/.nixsh/init.bash' >> /home/me/.bashrc

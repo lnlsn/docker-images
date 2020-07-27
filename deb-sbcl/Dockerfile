@@ -1,5 +1,5 @@
 FROM debian:latest
-MAINTAINER Lenilson Jose Dias <to@ha-ha.dev>
+MAINTAINER Lenilson Jose Dias <to@lnlsn.dev>
 
 RUN apt-get update && apt-get install -y \
   curl	    \
